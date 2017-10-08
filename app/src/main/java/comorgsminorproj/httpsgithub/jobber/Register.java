@@ -52,11 +52,11 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
             String name = uname.getText().toString().trim();
 
             if (TextUtils.isEmpty(email)) {
-                Toast.makeText(this, "Please enter email !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter your email !", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (TextUtils.isEmpty(password)) {
-                Toast.makeText(this, "Please enter password !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter your password !", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (TextUtils.isEmpty(name)) {
@@ -80,7 +80,7 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(Register.this, "Email Sent", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(Register.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
