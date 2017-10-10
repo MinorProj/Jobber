@@ -25,9 +25,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private EditText emailid;
     private  EditText passwd;
     private Button login;
-
-    private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     progressDialog = new ProgressDialog(this);
     mAuth = FirebaseAuth.getInstance();
 
-    emailid = (EditText) findViewById(R.id.lemail);
+    emailid = (EditText)findViewById(R.id.lemail);
     passwd = (EditText) findViewById(R.id.lpassword);
     login = (Button) findViewById(R.id.login);
 
