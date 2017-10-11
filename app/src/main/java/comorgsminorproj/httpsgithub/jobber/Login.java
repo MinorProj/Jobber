@@ -37,15 +37,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     progressDialog = new ProgressDialog(this);
     mAuth = FirebaseAuth.getInstance();
-    if(mAuth.getCurrentUser()!=null){
-        finish();
-        Intent i = new Intent(getApplicationContext(), Resume.class);
-        startActivity(i);
-    }
+
 
     emailid = (EditText) findViewById(R.id.lemail);
     passwd = (EditText) findViewById(R.id.lpassword);
-    login = (Button) findViewById(R.id.loginbt);
+    login = (Button) findViewById(R.id.login);
 
         login.setOnClickListener(this);
     }
@@ -73,8 +69,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
-                            finish();
-                            Intent i = new Intent(getApplicationContext(), Resume.class);
+
+                            Intent i = new Intent(Login.this, Resume.class);
                             startActivity(i);
                         }
                     }

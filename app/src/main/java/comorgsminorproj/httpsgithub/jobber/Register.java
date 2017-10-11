@@ -53,57 +53,58 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
 
     }
 
-        private void register() {
+    private void register() {
 
-           final String email = uemail.getText().toString().trim();
-            String password = upassword.getText().toString().trim();
-           final String name = uname.getText().toString().trim();
-           final String mobile = umobile.getText().toString();
+        final String email = uemail.getText().toString().trim();
+        String password = upassword.getText().toString().trim();
+        final String name = uname.getText().toString().trim();
+        final String mobile = umobile.getText().toString();
 
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(this, "Please enter email !", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (TextUtils.isEmpty(password)) {
-                Toast.makeText(this, "Please enter password !", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (TextUtils.isEmpty(name)) {
-                Toast.makeText(this, "Please enter your name !", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            progressDialog.setMessage("Registering User ...");
-            progressDialog.show();
-
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(Register.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                if(user != null) {
-                                    user.sendEmailVerification()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(Register.this, "Email Sent", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                }
-                                            });
-                                }
-                                writeUser(name,email,mobile);
-                            } else {
-                                progressDialog.dismiss();
-                                Toast.makeText(Register.this, "Unsuccessful. Please try again !", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                    });
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Please enter email !", Toast.LENGTH_SHORT).show();
+            return;
         }
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please enter password !", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(this, "Please enter your name !", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressDialog.setMessage("Registering User ...");
+        progressDialog.show();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Register.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            if(user != null) {
+                                user.sendEmailVerification()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Toast.makeText(Register.this, "Email Sent", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+
+                            }
+                            writeUser(name,email,mobile);
+                        } else {
+                            progressDialog.dismiss();
+                            Toast.makeText(Register.this, "Unsuccessful. Please try again !", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                });
+    }
 
     private void writeUser(String name,String email,String mobile)
     {
@@ -117,8 +118,8 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-                if(v == uregister)
-                    register();
+        if(v == uregister)
+            register();
     }
 
 

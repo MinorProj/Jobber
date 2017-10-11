@@ -20,7 +20,7 @@ public class Resume extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.activity_resume);
 
         mAuth = FirebaseAuth.getInstance();
-
+        logout = (Button) findViewById(R.id.btLogout);
         if(mAuth.getCurrentUser() == null){
             finish();
             startActivity(new Intent(this,Login.class));
