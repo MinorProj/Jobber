@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
@@ -35,13 +36,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-    progressDialog = new ProgressDialog(this);
-    mAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
 
 
-    emailid = (EditText) findViewById(R.id.lemail);
-    passwd = (EditText) findViewById(R.id.lpassword);
-    login = (Button) findViewById(R.id.login);
+        emailid = (EditText) findViewById(R.id.lemail);
+        passwd = (EditText) findViewById(R.id.lpassword);
+        login = (Button) findViewById(R.id.login);
 
         login.setOnClickListener(this);
     }
@@ -69,9 +70,18 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
-
-                            Intent i = new Intent(Login.this, Resume.class);
-                            startActivity(i);
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            if(user != null) {
+                                if (user.isEmailVerified()) {
+                                    Intent i = new Intent(Login.this, Resume.class);
+                                    startActivity(i);
+                                } else {
+                                    Toast.makeText(Login.this,"Please verify your EmailId",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                        else{
+                            Toast.makeText(Login.this,"Please Register first",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
