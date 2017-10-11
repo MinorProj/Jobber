@@ -31,7 +31,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/loginbt"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
