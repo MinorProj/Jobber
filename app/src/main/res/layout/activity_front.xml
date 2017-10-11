@@ -14,7 +14,7 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/mygif"
+        android:src="@drawable/mygif2"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
