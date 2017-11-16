@@ -2,6 +2,9 @@
     <string name="app_name">Kaam Dhanda</string>
     <string name="login">LOGIN</string>
     <string name="register">REGISTER</string>
+    <string name="title_activity_recruiter">Recruiter</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 
 </resources>
