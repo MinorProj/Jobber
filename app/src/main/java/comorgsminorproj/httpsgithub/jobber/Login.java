@@ -7,10 +7,14 @@ package comorgsminorproj.httpsgithub.jobber;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,7 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login extends Fragment implements View.OnClickListener {
 
     private EditText emailid;
     private  EditText passwd;
@@ -31,20 +35,21 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.login,container,false);
 
-        progressDialog = new ProgressDialog(this);
+
+        progressDialog = new ProgressDialog(getActivity());
         mAuth = FirebaseAuth.getInstance();
 
 
-        emailid = (EditText) findViewById(R.id.lemail);
-        passwd = (EditText) findViewById(R.id.lpassword);
-        login = (Button) findViewById(R.id.login);
+        emailid = (EditText) view.findViewById(R.id.lemail);
+        passwd = (EditText) view.findViewById(R.id.lpassword);
+        login = (Button) view.findViewById(R.id.login);
 
         login.setOnClickListener(this);
+
+        return view;
     }
 
     private void loginUser(){
@@ -53,11 +58,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String password = passwd.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Please enter email !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter email !", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please enter password !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter password !", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -65,7 +70,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         progressDialog.show();
 
         mAuth.signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
@@ -73,15 +78,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if(user != null) {
                                 if (user.isEmailVerified()) {
-                                    Intent i = new Intent(Login.this, Resume.class);
+                                    Intent i = new Intent(getActivity(), Resume.class);
                                     startActivity(i);
                                 } else {
-                                    Toast.makeText(Login.this,"Please verify your EmailId",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(),"Please verify your EmailId",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
                         else{
-                            Toast.makeText(Login.this,"Please Register first",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),"Please Register first",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

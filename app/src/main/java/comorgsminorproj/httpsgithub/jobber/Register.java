@@ -2,10 +2,14 @@ package comorgsminorproj.httpsgithub.jobber;
 
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register extends AppCompatActivity  implements View.OnClickListener {
+public class Register extends Fragment implements View.OnClickListener {
 
     private EditText uname;
     private EditText uemail;
@@ -31,26 +35,25 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.register,container,false);
+
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(getActivity());
 
-        uname = (EditText) findViewById(R.id.name);
-        uemail = (EditText) findViewById(R.id.email);
-        umobile = (EditText) findViewById(R.id.mobile);
-        upassword = (EditText) findViewById(R.id.password);
-        uregister = (Button) findViewById(R.id.register);
+        uname = (EditText) view.findViewById(R.id.name);
+        uemail = (EditText) view.findViewById(R.id.email);
+        umobile = (EditText) view.findViewById(R.id.mobile);
+        upassword = (EditText) view.findViewById(R.id.password);
+        uregister = (Button) view.findViewById(R.id.register);
 
         uregister.setOnClickListener(this);
 
 
-
+        return view;
     }
 
     private void register() {
@@ -61,15 +64,15 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
         final String mobile = umobile.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Please enter email !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter email !", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please enter password !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter password !", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(name)) {
-            Toast.makeText(this, "Please enter your name !", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter your name !", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -77,11 +80,11 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
         progressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Register.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             if(user != null) {
@@ -90,7 +93,7 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(Register.this, "Email Sent", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getActivity(), "Email Sent", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
@@ -99,7 +102,7 @@ public class Register extends AppCompatActivity  implements View.OnClickListener
                             writeUser(name,email,mobile);
                         } else {
                             progressDialog.dismiss();
-                            Toast.makeText(Register.this, "Unsuccessful. Please try again !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Unsuccessful. Please try again !", Toast.LENGTH_SHORT).show();
                         }
                     }
 

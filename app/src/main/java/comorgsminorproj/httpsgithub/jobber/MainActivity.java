@@ -4,40 +4,35 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button bt1;
     private Button bt2;
-    private Button bt3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bt1 = (Button) findViewById(R.id.loginbt);
-        bt2 = (Button) findViewById(R.id.registerbt);
-        bt3 = (Button) findViewById(R.id.recbutton);
+        bt1 = (Button) findViewById(R.id.candidatebt);
+        bt2 = (Button) findViewById(R.id.recruiterbt);
+
 
         bt1.setOnClickListener(this);
         bt2.setOnClickListener(this);
-        bt3.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         if(v == bt1){
             finish();
-            startActivity(new Intent(MainActivity.this,Login.class));
+            startActivity(new Intent(MainActivity.this,Candidate.class));
         }
         if(v == bt2){
-            finish();
-            startActivity(new Intent(MainActivity.this,Register.class));
-        }
-        if(v == bt3){
             finish();
             startActivity(new Intent(MainActivity.this,Recruiter.class));
         }
