@@ -17,61 +17,56 @@
         android:id="@+id/raddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/recruiter"
-        android:layout_alignStart="@+id/recruiter"
-        android:layout_below="@+id/recruiter"
-        android:layout_marginTop="25dp"
         android:ems="10"
         android:hint="Address"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/recruiter"
+        android:layout_alignLeft="@+id/recruiter"
+        android:layout_alignStart="@+id/recruiter" />
 
     <EditText
         android:id="@+id/rphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/raddress"
-        android:layout_alignRight="@+id/raddress"
-        android:layout_below="@+id/raddress"
-        android:layout_marginTop="34dp"
         android:ems="10"
         android:hint="Phone"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:layout_below="@+id/raddress"
+        android:layout_alignLeft="@+id/raddress"
+        android:layout_alignStart="@+id/raddress" />
 
     <EditText
         android:id="@+id/remail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/rphone"
-        android:layout_alignRight="@+id/rphone"
-        android:layout_below="@+id/rphone"
-        android:layout_marginTop="37dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_below="@+id/rphone"
+        android:layout_alignLeft="@+id/rphone"
+        android:layout_alignStart="@+id/rphone" />
 
     <EditText
         android:id="@+id/rname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/remail"
-        android:layout_alignRight="@+id/remail"
-        android:layout_below="@+id/remail"
-        android:layout_marginTop="27dp"
         android:ems="10"
         android:hint="HR Reprenstative"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
 
     <EditText
         android:id="@+id/rpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rname"
-        android:layout_alignStart="@+id/rname"
-        android:layout_below="@+id/rname"
-        android:layout_marginTop="25dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_below="@+id/rname"
+        android:layout_alignLeft="@+id/rname"
+        android:layout_alignStart="@+id/rname" />
 
     <Button
         android:id="@+id/rregister"
@@ -79,6 +74,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
+        android:layout_below="@+id/textView7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter official email id"
+        android:layout_below="@+id/remail"
+        android:layout_alignLeft="@+id/remail"
+        android:layout_alignStart="@+id/remail" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minimum 8 characters"
         android:layout_below="@+id/rpassword"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/rpassword"
+        android:layout_alignStart="@+id/rpassword" />
+
+
 </RelativeLayout>

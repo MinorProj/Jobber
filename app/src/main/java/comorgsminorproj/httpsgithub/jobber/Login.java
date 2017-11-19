@@ -78,7 +78,7 @@ public class Login extends Fragment implements View.OnClickListener {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if(user != null) {
                                 if (user.isEmailVerified()) {
-                                    Intent i = new Intent(getActivity(), Resume.class);
+                                    Intent i = new Intent(getActivity(),Find_Jobs.class);
                                     startActivity(i);
                                 } else {
                                     Toast.makeText(getActivity(),"Please verify your EmailId",Toast.LENGTH_SHORT).show();
