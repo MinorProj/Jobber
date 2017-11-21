@@ -48,17 +48,15 @@
         android:layout_marginStart="24dp"
         android:layout_alignTop="@+id/designation" />
 
-    <TextView
-        android:id="@+id/location"
+    <Button
+        android:text="Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:text="Location:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_below="@+id/textView12"
         android:layout_alignLeft="@+id/textView12"
         android:layout_alignStart="@+id/textView12"
-        android:layout_toLeftOf="@+id/designation"
-        android:layout_toStartOf="@+id/designation" />
+        android:layout_marginTop="19dp"
+        android:id="@+id/location_id"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
 </RelativeLayout>
