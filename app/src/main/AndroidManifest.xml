@@ -49,8 +49,11 @@
             android:name=".Candidate"
             android:label="@string/title_activity_candidate"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Find_Jobs" />
-        <activity android:name=".Rpage"></activity>
+        <activity
+            android:name=".Rpage"
+            android:label="home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddJobs"></activity>
     </application>
 
 </manifest>

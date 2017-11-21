@@ -6,6 +6,24 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_candidate">Candidate</string>
+    <string name="title_activity_homescreen">Homescreen</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_add_jobs">AddJobs</string>
+
+    <string-array name="designation_array">
+        <item>Manager</item>
+        <item>Assistant Manager</item>
+        <item>Software developer</item>
+        <item>Project Manager</item>
+        <item>Junior software Developer</item>
+        <item>Human Resource Manager</item>
+        <item>Web Developer</item>
+        <item>Graphic Designer</item>
+        <item>Accounts Manager</item>
+
+    </string-array>
 
 
 </resources>
