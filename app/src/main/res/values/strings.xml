@@ -31,10 +31,10 @@
         <item>Banglore</item>
         <item>Hyderabad</item>
         <item>Amhedabad</item>
-        <item>Guugram</item>
+        <item>Gurugram</item>
         <item>Noida</item>
         <item>Ghaziabad</item>
-        <item>Channai</item>
+        <item>Chennai</item>
         <item>Kolkata</item>
         <item>Surat</item>
         <item>Pune</item>
@@ -43,5 +43,8 @@
         <item>Indore</item>
         <item>Patna</item>
     </string-array>
-
+    <string-array name="type">
+        <item>Full Time</item>
+        <item>Internship</item>
+    </string-array>
 </resources>
