@@ -11,13 +11,15 @@ public class Job {
     String desg;
     String type;
     String salary;
+    String qualification;
     ArrayList<String> loc;
 
-    public Job(String desg, String type, String salary, ArrayList<String> loc) {
+    public Job(String desg, String type, String salary, String qualification, ArrayList<String> loc) {
         this.desg = desg;
         this.type = type;
         this.salary = salary;
         this.loc = loc;
+        this.qualification = qualification;
     }
 
     public String getDesg() {
@@ -34,5 +36,9 @@ public class Job {
 
     public ArrayList<String> getLoc() {
         return loc;
+    }
+
+    public String getQualification() {
+        return qualification;
     }
 }

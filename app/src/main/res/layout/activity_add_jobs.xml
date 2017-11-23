@@ -72,7 +72,7 @@
         android:layout_below="@+id/textView12"
         android:layout_marginTop="32dp"
         android:text="Salary : "
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
 
     <EditText
         android:id="@+id/salary_id"
@@ -95,7 +95,7 @@
         android:layout_below="@+id/salary_id"
         android:layout_marginTop="19dp"
         android:text="Type : "
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
 
     <Spinner
         android:id="@+id/t"
@@ -115,12 +115,9 @@
         android:text="ADD"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginBottom="39dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -130,37 +127,29 @@
         android:layout_alignStart="@+id/type"
         android:layout_alignTop="@+id/location_id"
         android:layout_marginTop="14dp"
-        android:text="Choose:"
+        android:text="Choose "
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/type"
-        android:layout_alignRight="@+id/type"
-        android:layout_below="@+id/location_id"
-        android:layout_marginTop="33dp"
-        android:id="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"
         android:layout_alignStart="@+id/textView5"
-        android:layout_alignTop="@+id/textView7"
-        android:text="Qualification:"
+        android:layout_below="@+id/location_id"
+        android:layout_marginTop="30dp"
+        android:text="Qualification :"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <Spinner
-        android:id="@+id/qualification"
+        android:id="@+id/qual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/t"
         android:layout_alignLeft="@+id/t"
         android:layout_alignRight="@+id/t"
         android:layout_alignStart="@+id/t"
-        android:layout_alignTop="@+id/textView8" />
+        android:layout_alignTop="@+id/textView6" />
 
 
 </RelativeLayout>
