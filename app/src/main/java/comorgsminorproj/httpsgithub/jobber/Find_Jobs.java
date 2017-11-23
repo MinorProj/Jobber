@@ -11,10 +11,7 @@ import java.util.ArrayList;
 
 public class Find_Jobs extends AppCompatActivity {
 
-    Button loc;
-    String[] listitems;
-    boolean[] checkitems;
-    ArrayList<Integer> mUseritems =new ArrayList<>();
+
 
 
 }
