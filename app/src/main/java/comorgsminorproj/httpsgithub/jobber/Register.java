@@ -123,6 +123,7 @@ public class Register extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v == uregister)
             register();
+
     }
 
 
