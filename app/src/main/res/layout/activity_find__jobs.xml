@@ -1,9 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="comorgsminorproj.httpsgithub.jobber.Find_Jobs">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/Cdesignation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Designation:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/desig"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Cdesignation"
+        android:text="Designation"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/Clocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/desig"
+        android:layout_marginTop="34dp"
+        android:text="Location:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/loc"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Clocation"
+        android:text="Location"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/Cjob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/loc"
+        android:layout_marginTop="43dp"
+        android:text="JobType:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/job"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Cjob"
+        android:layout_alignRight="@+id/Cjob"
+        android:layout_below="@+id/Cjob"
+        android:text="Type"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/Cqualification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/job"
+        android:layout_alignStart="@+id/job"
+        android:layout_below="@+id/job"
+        android:layout_marginTop="26dp"
+        android:text="Qualification"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:ignore="HardcodedText" />
+
+    <AutoCompleteTextView
+        android:id="@+id/qual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Cqualification"
+        android:layout_alignRight="@+id/Cqualification"
+        android:layout_alignEnd="@+id/Cqualification" />
+</RelativeLayout>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rl"
     tools:context="comorgsminorproj.httpsgithub.jobber.AddJobs">
 
 
@@ -34,7 +33,6 @@
         android:dropDownHeight="wrap_content"
         android:dropDownWidth="match_parent"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:layout_toEndOf="@+id/textView11"
         android:layout_toRightOf="@+id/textView11" />
 
     <TextView
@@ -54,68 +52,13 @@
         android:text="Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:id="@+id/location_id"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_below="@+id/type"
-        android:layout_alignLeft="@+id/type"
-        android:layout_alignStart="@+id/type"
-        android:layout_marginTop="31dp" />
-
-    <TextView
-        android:id="@+id/salary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_below="@+id/textView12"
-        android:layout_marginTop="32dp"
-        android:text="Salary : "
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
-
-    <EditText
-        android:id="@+id/salary_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/salary"
-        android:layout_alignBottom="@+id/salary"
-        android:ems="10"
-        android:inputType="number"
-        android:layout_toRightOf="@+id/textView12"
+        android:layout_below="@+id/designation"
         android:layout_alignRight="@+id/designation"
-        android:layout_alignEnd="@+id/designation" />
-
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/salary"
-        android:layout_alignStart="@+id/salary"
-        android:layout_below="@+id/salary_id"
-        android:layout_marginTop="19dp"
-        android:text="Type : "
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
-
-    <Spinner
-        android:id="@+id/t"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/salary_id"
-        android:layout_alignLeft="@+id/salary_id"
-        android:layout_alignRight="@+id/salary_id"
-        android:layout_alignStart="@+id/salary_id"
-        android:layout_alignTop="@+id/type" />
-
-    <Button
-        android:id="@+id/add"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/location_id"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:text="ADD"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-
+        android:layout_alignEnd="@+id/designation"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp" />
 
 </RelativeLayout>
