@@ -56,10 +56,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/location_id"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_marginTop="34dp"
         android:layout_below="@+id/type"
-        android:layout_alignLeft="@+id/type"
-        android:layout_alignStart="@+id/type"
-        android:layout_marginTop="31dp" />
+        android:layout_alignRight="@+id/t"
+        android:layout_alignEnd="@+id/t"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp" />
 
     <TextView
         android:id="@+id/salary"
@@ -116,6 +118,17 @@
         android:text="ADD"
         android:textSize="22sp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/type"
+        android:layout_alignStart="@+id/type"
+        android:layout_alignTop="@+id/location_id"
+        android:layout_marginTop="14dp"
+        android:text="Choose "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
 </RelativeLayout>
