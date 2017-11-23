@@ -53,7 +53,8 @@
             android:name=".Rpage"
             android:label="home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddJobs"></activity>
+        <activity android:name=".AddJobs" />
+        <activity android:name=".home_page"></activity>
     </application>
 
 </manifest>
