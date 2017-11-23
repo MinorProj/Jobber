@@ -24,6 +24,10 @@
             android:name=".Login"
             android:label="@string/login"
             android:parentActivityName=".MainActivity">
+            <activity
+                android:name=".Find_Jobs"
+                android:label="Find_Jobs"
+                android:theme="@style/AppTheme.NoActionBar" />
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -40,7 +44,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Resume" />
         <activity
             android:name=".Recruiter"
             android:label="@string/title_activity_recruiter"
