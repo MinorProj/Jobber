@@ -224,7 +224,7 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
 
     private void submit() {
 
-
+        Find f = new Find(choose,sel,selected);
 
 
     }
