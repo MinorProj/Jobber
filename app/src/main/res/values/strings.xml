@@ -53,5 +53,6 @@
         <item>Undegraduate</item>
         <item>Graduate</item>
         <item>Doctorate</item>
+        <item>PostGraduate</item>
     </string-array>
 </resources>

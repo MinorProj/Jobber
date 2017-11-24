@@ -72,7 +72,7 @@
         android:layout_below="@+id/textView12"
         android:layout_marginTop="32dp"
         android:text="Salary : "
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <EditText
         android:id="@+id/salary_id"
@@ -95,7 +95,7 @@
         android:layout_below="@+id/salary_id"
         android:layout_marginTop="19dp"
         android:text="Type : "
-        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <Spinner
         android:id="@+id/t"
