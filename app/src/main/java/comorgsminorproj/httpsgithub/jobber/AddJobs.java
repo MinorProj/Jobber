@@ -153,17 +153,20 @@ public class AddJobs extends AppCompatActivity implements View.OnClickListener{
 
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            String userID = user.getUid();
-
-            mDatabase.child("recruiter").child(userID).child("Jobs").push().setValue(j,new DatabaseReference.CompletionListener(){
+            final String userID = user.getUid();
+            final String jkey = mDatabase.child("jobs").push().getKey();
+            mDatabase.child("jobs").child(jkey).setValue(j,new DatabaseReference.CompletionListener(){
                 public void onComplete(DatabaseError error,DatabaseReference reference){
                     if (error != null){
                         Snackbar s = Snackbar.make(rl,"Unsuccessful",Snackbar.LENGTH_SHORT);
                         s.show();
+
                     }else {
                         Snackbar s = Snackbar.make(rl,"Job for "+desg+" Added",Snackbar.LENGTH_SHORT);
                         s.show();
                         selected.clear();
+                        JobRecruiter jr = new JobRecruiter(jkey,userID);
+                        mDatabase.child("JobRecruiter").push().setValue(jr);
                     }
                 }
             });
