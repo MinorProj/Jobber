@@ -4,64 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fj"
     tools:context="comorgsminorproj.httpsgithub.jobber.Find_Jobs">
 
     <TextView
         android:id="@+id/Cdesignation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:text="Designation:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/desig"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/Cdesignation"
         android:text="Designation"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/Cdesignation"
+        android:layout_alignLeft="@+id/Cdesignation"
+        android:layout_alignStart="@+id/Cdesignation" />
 
     <TextView
         android:id="@+id/Clocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/desig"
         android:layout_marginTop="34dp"
         android:text="Location:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/desig"
+        android:layout_alignLeft="@+id/desig"
+        android:layout_alignStart="@+id/desig" />
 
     <Button
         android:id="@+id/loc"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/Clocation"
         android:text="Location"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/Clocation"
+        android:layout_alignLeft="@+id/job"
+        android:layout_alignStart="@+id/job" />
 
     <TextView
         android:id="@+id/Cjob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/loc"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="41dp"
         android:text="JobType:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_below="@+id/loc"
+        android:layout_alignRight="@+id/Clocation"
+        android:layout_alignEnd="@+id/Clocation" />
 
     <Button
         android:id="@+id/job"
@@ -86,23 +86,20 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         tools:ignore="HardcodedText" />
 
-    <AutoCompleteTextView
-        android:id="@+id/qual"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/Cqualification"
-        android:layout_alignRight="@+id/Cqualification"
-        android:layout_alignEnd="@+id/Cqualification" />
-
     <Button
         android:id="@+id/search"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/qual"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="Search" />
+        android:layout_marginTop="31dp"
+        android:text="Search"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/qual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cqualification" />
 </RelativeLayout>

@@ -9,25 +9,33 @@ import android.widget.Button;
 
 import java.net.URL;
 
-public class home_page extends AppCompatActivity {
+public class home_page extends AppCompatActivity implements View.OnClickListener{
+
     Button mbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
         mbutton=(Button)findViewById(R.id.find_jobs);
-        mbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(home_page.this,Find_Jobs.class);
-                startActivity(i);
-            }
-        });
+
+        mbutton.setOnClickListener(this);
     }
 
     public void open(View view){
         Intent browerIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.fresherslive.com/govt-jobs"));
         startActivity(browerIntent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == mbutton)
+        {
+            finish();
+            Intent i = new Intent(home_page.this,Find_Jobs.class);
+            startActivity(i);
+
+        }
     }
 }
