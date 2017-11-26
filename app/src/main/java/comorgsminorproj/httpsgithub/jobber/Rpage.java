@@ -15,7 +15,7 @@ public class Rpage extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rpage);
 
-        addjob = (Button) findViewById(R.id.addjob);
+        addjob = (Button) findViewById(R.id.add_id);
 
         addjob.setOnClickListener(this);
     }

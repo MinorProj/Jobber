@@ -1,65 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="700dp"
+    android:orientation="vertical"
+    android:weightSum="10"
     tools:context="comorgsminorproj.httpsgithub.jobber.Rpage">
 
 
-    <android.support.v7.widget.CardView
+    <GridLayout
+        android:id="@+id/mainGrid"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_weight="8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/cardView" />
+        android:layout_height="0dp"
+        android:padding="14dp"
 
-    <Button
-        android:id="@+id/addjob"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/cardView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="114dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginStart="65dp"
-        android:text="addjobs" />
+        >
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            >
 
-    <Button
-        android:id="@+id/applicant"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/addjob"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:text="applicants" />
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/modify"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addjob"
-        android:layout_alignStart="@+id/addjob"
-        android:layout_below="@+id/cardView"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="96dp"
-        android:text="modify jobs" />
+                <Button
 
-    <Button
-        android:id="@+id/delete"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/modify"
-        android:layout_alignEnd="@+id/applicant"
-        android:layout_alignRight="@+id/applicant"
-        android:layout_alignTop="@+id/modify"
-        android:text="delete jobs" />
-</RelativeLayout>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="134dp"
+                    android:layout_height="186dp"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:text="ADD JOBS"
+                    android:id="@+id/add_id" />
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <!--column 2-->
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            >
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="134dp"
+                    android:layout_height="186dp"
+                    android:text="APPLICANTS"
+                    android:id="@+id/applicant_id"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <!--Row 1 -->
+        <!--column 1-->
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            >
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="134dp"
+                    android:layout_height="186dp"
+                    android:text="MODIFY JOBS"
+                    android:id="@+id/modify_id"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <!--column 2-->
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="8dp"
+            >
+
+            <LinearLayout
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="134dp"
+                    android:layout_height="186dp"
+                    android:text="DELETE JOBS"
+                    android:id="@+id/delete_id"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+
+
+    </GridLayout>
+
+
+</LinearLayout>
