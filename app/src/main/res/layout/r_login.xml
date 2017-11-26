@@ -35,5 +35,6 @@
         android:layout_below="@+id/rpassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp"
-        android:text="Login" />
+        android:text="Login"
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

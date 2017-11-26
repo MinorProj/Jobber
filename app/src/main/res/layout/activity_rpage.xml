@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="700dp"
+    android:layout_height="600dp"
     android:orientation="vertical"
     android:weightSum="10"
     tools:context="comorgsminorproj.httpsgithub.jobber.Rpage">
@@ -29,13 +29,13 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardElevation="22dp"
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="?attr/colorPrimary">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp"
+                android:layout_margin="0dp"
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -47,7 +47,8 @@
                     android:layout_height="186dp"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:text="ADD JOBS"
-                    android:id="@+id/add_id" />
+                    android:id="@+id/add_id"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
 
 
             </LinearLayout>
@@ -65,9 +66,9 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardElevation="23dp"
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="?attr/colorPrimary">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -83,8 +84,8 @@
                     android:layout_height="186dp"
                     android:text="APPLICANTS"
                     android:id="@+id/applicant_id"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
-
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
 
 
             </LinearLayout>
@@ -104,9 +105,9 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardElevation="24dp"
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="?attr/colorPrimary">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -122,7 +123,8 @@
                     android:layout_height="186dp"
                     android:text="MODIFY JOBS"
                     android:id="@+id/modify_id"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
 
 
 
@@ -141,9 +143,9 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardElevation="24dp"
+            app:cardCornerRadius="6dp"
+            app:cardBackgroundColor="?attr/colorPrimary">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -159,7 +161,8 @@
                     android:layout_height="186dp"
                     android:text="DELETE JOBS"
                     android:id="@+id/delete_id"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored" />
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
 
 
             </LinearLayout>

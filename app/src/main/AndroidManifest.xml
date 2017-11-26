@@ -12,15 +12,20 @@
         android:roundIcon="@mipmap/img"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
 
+        <activity android:name=".Front">
+
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+
+
+        </activity>
         <activity
             android:name=".Login"
             android:label="@string/login"
@@ -51,11 +56,41 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Rpage"
+            android:parentActivityName=".Login">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Login" />
+
+</activity>
+        <activity
+            android:name=".home_page"
             android:label="home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Find_Jobs" />
-        <activity android:name=".AddJobs" />
-        <activity android:name=".home_page" />
+        <activity
+         android:name=".Find_Jobs"
+            android:label="Find_Jobs"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".AddJobs"
+        android:parentActivityName=".Rpage">
+
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Rpage" />
+    </activity>
+        <activity android:name=".GovernmentJobs"
+            android:parentActivityName=".home_page">
+
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".home_page" />
+        </activity>
+
 
     </application>
 

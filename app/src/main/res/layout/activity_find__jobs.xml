@@ -26,7 +26,8 @@
         tools:ignore="HardcodedText"
         android:layout_below="@+id/Cdesignation"
         android:layout_alignLeft="@+id/Cdesignation"
-        android:layout_alignStart="@+id/Cdesignation" />
+        android:layout_alignStart="@+id/Cdesignation"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/Clocation"
@@ -49,7 +50,8 @@
         tools:ignore="HardcodedText"
         android:layout_below="@+id/Clocation"
         android:layout_alignLeft="@+id/job"
-        android:layout_alignStart="@+id/job" />
+        android:layout_alignStart="@+id/job"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/Cjob"
@@ -72,7 +74,8 @@
         android:layout_alignRight="@+id/Cjob"
         android:layout_below="@+id/Cjob"
         android:text="Type"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/Cqualification"
@@ -95,11 +98,18 @@
         android:layout_marginTop="31dp"
         android:text="Search"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary" />
 
     <Spinner
         android:id="@+id/qual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Cqualification" />
+        android:layout_below="@+id/Cqualification"
+        android:longClickable="false"
+        android:animateLayoutChanges="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:textAlignment="center" />
 </RelativeLayout>

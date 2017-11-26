@@ -15,15 +15,11 @@ import java.net.URL;
 public class home_page extends AppCompatActivity implements View.OnClickListener{
 
     Button mbutton;
-    WebView wb;
-    public void onBackedPressed(){
-        if(wb.canGoBack()){
+    Button mgov;
 
-            wb.goBack();
-        }else{
-            super.onBackPressed();
-        }
-    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +29,9 @@ public class home_page extends AppCompatActivity implements View.OnClickListener
         mbutton=(Button)findViewById(R.id.find_jobs);
 
         mbutton.setOnClickListener(this);
-        wb=(WebView)findViewById(R.id.web_id);
-        wb.getSettings().setJavaScriptEnabled(true);
-        wb.setFocusable(true);
-        wb.setFocusableInTouchMode(true);
-        wb.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        wb.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        wb.getSettings().setDomStorageEnabled(true);
-        wb.getSettings().setDatabaseEnabled(true);
-        wb.getSettings().setAppCacheEnabled(true);
-        wb.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        wb.loadUrl("https://www.fresherslive.com/govt-jobs");
-        wb.setWebViewClient(new WebViewClient());
+        mgov=(Button)findViewById(R.id.gov_id);
+        mgov.setOnClickListener(this);
+
     }
 
 
@@ -58,5 +45,12 @@ public class home_page extends AppCompatActivity implements View.OnClickListener
             startActivity(i);
 
         }
+        if (v==mgov)
+        {
+            finish();
+            Intent j=new Intent(home_page.this,GovernmentJobs.class);
+            startActivity(j);
+        }
+
     }
 }

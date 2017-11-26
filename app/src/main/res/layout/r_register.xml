@@ -80,5 +80,6 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:layout_below="@+id/rpassword"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary" />
 </RelativeLayout>
