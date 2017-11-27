@@ -52,11 +52,7 @@ public class Find_Jobs extends  AppCompatActivity implements Serializable{
     String type;
     RelativeLayout fj;
 
-    private DatabaseReference root;
-
     ArrayList<Job> mJobs;
-
-
 
 
 @Override
@@ -72,7 +68,6 @@ public class Find_Jobs extends  AppCompatActivity implements Serializable{
     qual = (Spinner) findViewById(R.id.qual);
     fj = (RelativeLayout) findViewById(R.id.fj);
 
-    root = FirebaseDatabase.getInstance().getReference();
 
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
             R.array.qualification_array, android.R.layout.simple_spinner_item);
@@ -94,16 +89,12 @@ public class Find_Jobs extends  AppCompatActivity implements Serializable{
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     ctype.setAdapter(adapter3);
 
-    View.OnClickListener v = new View.OnClickListener() {
+    search.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            if(v == search)
-                submit();
+            submit();
         }
-    };
-
-
-
+    });
 
 }
 
@@ -175,8 +166,6 @@ public class Find_Jobs extends  AppCompatActivity implements Serializable{
         Intent i= new Intent(this,JobRetrieve.class);
         i.putExtra("jobs",mJobs);
         startActivity(i);
-
-
     }
 
 

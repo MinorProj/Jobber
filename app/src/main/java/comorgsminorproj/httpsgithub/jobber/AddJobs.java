@@ -94,10 +94,10 @@ public class AddJobs extends AppCompatActivity implements View.OnClickListener{
                         if (isChecked) {
                             if (!mUseritems.contains(which)) {
                                 mUseritems.add(which);
-                                selected.add(listitems[which]);
+
                             } else {
                                 mUseritems.remove(which);
-                                selected.remove(which);
+
                             }
                         }
 
@@ -109,10 +109,8 @@ public class AddJobs extends AppCompatActivity implements View.OnClickListener{
                     public void onClick(DialogInterface dialog, int which) {
                         String item = "";
                         for (int i = 0; i < mUseritems.size(); i++) {
-                            item = item + listitems[mUseritems.get(i)];
-                            if (i != mUseritems.size() - 1) {
-                                item = item + ";";
-                            }
+                            selected.add(listitems[mUseritems.get(i)]);
+
                         }
 
 
