@@ -79,7 +79,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".JobRetrieve" />
-        <activity android:name=".view"></activity>
     </application>
 
 </manifest>
