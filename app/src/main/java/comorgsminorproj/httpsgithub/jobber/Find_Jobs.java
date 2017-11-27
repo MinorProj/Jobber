@@ -39,30 +39,21 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
 
     public static final String URL = "http://35.200.252.187//elasticsearch/jobs/jobs/";
 
-    Button cdesignation;
-    Button clocation;
-    Button ctype;
+    Spinner cdesig;
+    Spinner cloc;
+    Spinner ctype;
     Button search;
     Spinner qual;
     String qualification;
-    String l,d,t;
+    String cdesignation;
+    String loc;
+    String type;
     RelativeLayout fj;
-    String[] listitems;
-    boolean[] checkitems;
-     String s3,s4;
+
     private DatabaseReference root;
 
     ArrayList<Job> mJobs;
 
-    ArrayList<Integer> mUseritems = new ArrayList<>();
-    //for Location
-    final ArrayList<String> selected = new ArrayList<>();
-    //for Designation
-    ArrayList<Integer> cUseritems = new ArrayList<>();
-    //
-    final ArrayList<String> choose = new ArrayList<>();
-    ArrayList<Integer> tUseritems = new ArrayList<>();
-    final ArrayList<String> sel = new ArrayList<>();
 
 
 
@@ -71,205 +62,46 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_find__jobs);
 
-    clocation = (Button) findViewById(R.id.loc);
+    ctype = (Spinner) findViewById(R.id.ctype);
+    cdesig = (Spinner) findViewById(R.id.cdesig);
+    cloc = (Spinner) findViewById(R.id.cloc);
     search = (Button) findViewById(R.id.search);
-    ctype=(Button)findViewById(R.id.job);
-    cdesignation=(Button)findViewById(R.id.desig);
-    qual = (Spinner)findViewById(R.id.qual);
-    fj = (RelativeLayout)findViewById(R.id.fj);
+
+    qual = (Spinner) findViewById(R.id.qual);
+    fj = (RelativeLayout) findViewById(R.id.fj);
 
     root = FirebaseDatabase.getInstance().getReference();
 
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-            R.array.qualification_array,android.R.layout.simple_spinner_item);
+            R.array.qualification_array, android.R.layout.simple_spinner_item);
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     qual.setAdapter(adapter);
 
-   clocation.setOnClickListener(this);
+    ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
+            R.array.Location, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    cloc.setAdapter(adapter1);
+
+    ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+            R.array.designation_array, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    cdesig.setAdapter(adapter2);
+
+    ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+            R.array.type, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    ctype.setAdapter(adapter3);
+
     search.setOnClickListener(this);
-    cdesignation.setOnClickListener(this);
-    ctype.setOnClickListener(this);
+
 }
-    private void location() {
-        listitems = getResources().getStringArray(R.array.Location);
-        checkitems = new boolean[listitems.length];
-
-
-        AlertDialog.Builder mbuilder = new AlertDialog.Builder(Find_Jobs.this);
-        mbuilder.setTitle("Location");
-        mbuilder.setMultiChoiceItems(listitems, checkitems, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                if (isChecked) {
-                    if (!mUseritems.contains(which)) {
-                        mUseritems.add(which);
-                        //selected.add(listitems[which]);
-                        l=listitems[which];
-                    } else {
-                        mUseritems.remove(which);
-                        selected.remove(which);
-                    }
-                }
-
-            }
-        });
-        mbuilder.setCancelable(false);
-        mbuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String item = "";
-                for (int i = 0; i < mUseritems.size(); i++) {
-                    item = item + listitems[mUseritems.get(i)];
-                    if (i != mUseritems.size() - 1) {
-                        item = item + ";";
-                    }
-                }
-            }
-        });
-        mbuilder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
-
-
-            }
-        });
-        mbuilder.setNeutralButton("Clear all", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                for (int i = 0; i < checkitems.length; i++) {
-                    checkitems[i] = false;
-                    mUseritems.clear();
-
-                }
-
-            }
-        });
-        AlertDialog mDialog = mbuilder.create();
-        mDialog.show();
-    }
-    private void designation() {
-        listitems = getResources().getStringArray(R.array.designation_array);
-        checkitems = new boolean[listitems.length];
-
-
-        AlertDialog.Builder mbuilder = new AlertDialog.Builder(Find_Jobs.this);
-        mbuilder.setTitle("Designation");
-        mbuilder.setMultiChoiceItems(listitems, checkitems, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                if (isChecked) {
-                    if (!cUseritems.contains(which)) {
-                        cUseritems.add(which);
-                       // choose.add(listitems[which]);
-                        d=listitems[which];
-                    } else {
-                        cUseritems.remove(which);
-                        choose.remove(which);
-                    }
-                }
-
-            }
-        });
-        mbuilder.setCancelable(false);
-        mbuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String item = "";
-                for (int i = 0; i < cUseritems.size(); i++) {
-                    item = item + listitems[cUseritems.get(i)];
-                    if (i != cUseritems.size() - 1) {
-                        item = item + ";";
-                    }
-                }
-            }
-        });
-        mbuilder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
-
-
-            }
-        });
-        mbuilder.setNeutralButton("Clear all", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                for (int i = 0; i < checkitems.length; i++) {
-                    checkitems[i] = false;
-                    cUseritems.clear();
-
-                }
-
-            }
-        });
-        AlertDialog mDialog = mbuilder.create();
-        mDialog.show();
-    }
-    private void jobtype() {
-        listitems = getResources().getStringArray(R.array.type);
-        checkitems = new boolean[listitems.length];
-
-
-        AlertDialog.Builder mbuilder = new AlertDialog.Builder(Find_Jobs.this);
-        mbuilder.setTitle("JobType");
-        mbuilder.setMultiChoiceItems(listitems, checkitems, new DialogInterface.OnMultiChoiceClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                if (isChecked) {
-                    if (!tUseritems.contains(which)) {
-                        tUseritems.add(which);
-                       // sel.add(listitems[which]);
-                        t=listitems[which];
-                    } else {
-                        tUseritems.remove(which);
-                       sel.remove(which);
-                    }
-                }
-
-            }
-        });
-        mbuilder.setCancelable(false);
-        mbuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String item = "";
-                for (int i = 0; i < tUseritems.size(); i++) {
-                    item = item + listitems[tUseritems.get(i)];
-                    if (i != tUseritems.size() - 1) {
-                        item = item + ";";
-                    }
-                }
-            }
-        });
-        mbuilder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                dialogInterface.dismiss();
-
-
-            }
-        });
-        mbuilder.setNeutralButton("Clear all", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int which) {
-                for (int i = 0; i < checkitems.length; i++) {
-                    checkitems[i] = false;
-                    tUseritems.clear();
-
-                }
-
-            }
-        });
-        AlertDialog mDialog = mbuilder.create();
-        mDialog.show();
-    }
-
 
     private void submit() {
+
+        qualification = qual.getSelectedItem().toString();
+        cdesignation = cdesig.getSelectedItem().toString();
+        loc = cloc.getSelectedItem().toString();
+        type = ctype.getSelectedItem().toString();
 
         mJobs = new ArrayList<Job>();
         Retrofit retrofit = new Retrofit.Builder()
@@ -283,10 +115,13 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
         headerMap.put("Authorization", Credentials.basic("user","ZGZWT9obsr1Y"));
 
         String searchString = "*";
-        searchString = searchString + " qualification:" + "undegraduate";
-        searchString = searchString + " loc:" + "anupshahr";
-        searchString = searchString + " desg:" + "web";
-        searchString = searchString + " type:" + "internship";
+        searchString = searchString + " qualification:" + qualification;
+
+        searchString = searchString + " loc:" + loc;
+
+        searchString = searchString + " desg:" + cdesignation;
+
+        searchString = searchString + " type:" + type;
 
         Call<HitsObject> call = searchAPI.search(headerMap,"AND",searchString);
 
@@ -330,18 +165,10 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
 
     }
 
-
-
     @Override
     public void onClick(View v) {
-        if(v == clocation)
-            location();
         if(v == search)
             submit();
-        if(v==ctype)
-            jobtype();
-        if(v==cdesignation)
-            designation();
     }
 
 

@@ -50,7 +50,7 @@
     </string-array>
 
     <string-array name="qualification_array">
-        <item>Undegraduate</item>
+        <item>Undergraduate</item>
         <item>Graduate</item>
         <item>Doctorate</item>
         <item>PostGraduate</item>
