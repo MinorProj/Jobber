@@ -44,9 +44,7 @@
         <activity
             android:name=".Rpage"
             android:parentActivityName=".Login">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Login" />
+
         </activity>
         <activity
             android:name=".home_page"
@@ -55,7 +53,12 @@
         <activity
             android:name=".Find_Jobs"
             android:label="Find_Jobs"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".home_page">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".home_page" />
+        </activity>
         <activity
             android:name=".AddJobs"
             android:parentActivityName=".Rpage">
