@@ -21,12 +21,12 @@
         android:id="@+id/cdesig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/Cdesignation"
-        android:layout_alignLeft="@+id/Cdesignation"
-        android:layout_alignRight="@+id/Cdesignation"
-        android:layout_alignStart="@+id/Cdesignation"
         android:layout_below="@+id/Cdesignation"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textView3"
@@ -42,12 +42,12 @@
         android:id="@+id/cloc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
         android:layout_below="@+id/textView3"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textView8"
@@ -63,12 +63,12 @@
         android:id="@+id/ctype"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView8"
-        android:layout_alignLeft="@+id/textView8"
-        android:layout_alignRight="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
         android:layout_below="@+id/textView8"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,21 +85,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/cdesig"
-        android:layout_alignLeft="@+id/textView10"
         android:layout_alignRight="@+id/cdesig"
-        android:layout_alignStart="@+id/textView10"
         android:layout_below="@+id/textView10"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/search"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cloc"
-        android:layout_alignStart="@+id/cloc"
+        android:text="Search"
         android:layout_below="@+id/qual"
-        android:layout_marginTop="52dp"
-        android:text="Search" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp" />
 
 </RelativeLayout>
