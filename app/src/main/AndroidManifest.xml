@@ -43,7 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Rpage"
-            android:parentActivityName=".Login"></activity>
+            android:parentActivityName=".Login" />
         <activity
             android:name=".home_page"
             android:label="home"
@@ -78,7 +78,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JobRetrieve"></activity>
+        <activity android:name=".JobRetrieve" />
+        <activity android:name=".view"></activity>
     </application>
 
 </manifest>
