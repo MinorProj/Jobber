@@ -17,99 +17,89 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/desig"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/cdesig"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Designation"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/Cdesignation"
+        android:layout_alignEnd="@+id/Cdesignation"
         android:layout_alignLeft="@+id/Cdesignation"
+        android:layout_alignRight="@+id/Cdesignation"
         android:layout_alignStart="@+id/Cdesignation"
-        android:background="@color/colorPrimary" />
+        android:layout_below="@+id/Cdesignation"
+        android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/Clocation"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:text="Location:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/desig"
-        android:layout_alignLeft="@+id/desig"
-        android:layout_alignStart="@+id/desig" />
-
-    <Button
-        android:id="@+id/loc"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@+id/cdesig"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
         android:text="Location"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/Clocation"
-        android:layout_alignLeft="@+id/job"
-        android:layout_alignStart="@+id/job"
-        android:background="@color/colorPrimary" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Spinner
+        android:id="@+id/cloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/Cjob"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:text="JobType:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:ignore="HardcodedText"
-        android:layout_below="@+id/loc"
-        android:layout_alignRight="@+id/Clocation"
-        android:layout_alignEnd="@+id/Clocation" />
+        android:layout_below="@+id/cloc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="Job Type"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <Button
-        android:id="@+id/job"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/ctype"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/Cjob"
-        android:layout_alignRight="@+id/Cjob"
-        android:layout_below="@+id/Cjob"
-        android:text="Type"
-        tools:ignore="HardcodedText"
-        android:background="@color/colorPrimary" />
+        android:layout_alignEnd="@+id/textView8"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignRight="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/textView8"
+        android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/Cqualification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/job"
-        android:layout_alignStart="@+id/job"
-        android:layout_below="@+id/job"
-        android:layout_marginTop="26dp"
+        android:layout_below="@+id/ctype"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
         android:text="Qualification"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:ignore="HardcodedText" />
+        android:id="@+id/textView10" />
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/cdesig"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignRight="@+id/cdesig"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_below="@+id/textView10"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/search"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/qual"
-        android:layout_marginTop="31dp"
-        android:text="Search"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorPrimary" />
+        android:layout_alignLeft="@+id/cloc"
+        android:layout_alignStart="@+id/cloc"
+        android:layout_below="@+id/spinner6"
+        android:layout_marginTop="52dp"
+        android:text="Search" />
 
-    <Spinner
-        android:id="@+id/qual"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Cqualification"
-        android:longClickable="false"
-        android:animateLayoutChanges="true"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:textAlignment="center" />
 </RelativeLayout>
