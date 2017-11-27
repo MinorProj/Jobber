@@ -1,19 +1,43 @@
 package comorgsminorproj.httpsgithub.jobber;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import okhttp3.Credentials;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Find_Jobs extends  AppCompatActivity implements View.OnClickListener{
+
+    public static final String URL = "http://35.200.252.187//elasticsearch/jobs/jobs/";
 
     Button cdesignation;
     Button clocation;
@@ -21,9 +45,15 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
     Button search;
     Spinner qual;
     String qualification;
+    String l,d,t;
     RelativeLayout fj;
     String[] listitems;
     boolean[] checkitems;
+     String s3,s4;
+    private DatabaseReference root;
+
+    ArrayList<Job> mJobs;
+
     ArrayList<Integer> mUseritems = new ArrayList<>();
     //for Location
     final ArrayList<String> selected = new ArrayList<>();
@@ -47,6 +77,8 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
     cdesignation=(Button)findViewById(R.id.desig);
     qual = (Spinner)findViewById(R.id.qual);
     fj = (RelativeLayout)findViewById(R.id.fj);
+
+    root = FirebaseDatabase.getInstance().getReference();
 
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
             R.array.qualification_array,android.R.layout.simple_spinner_item);
@@ -72,7 +104,8 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
                 if (isChecked) {
                     if (!mUseritems.contains(which)) {
                         mUseritems.add(which);
-                        selected.add(listitems[which]);
+                        //selected.add(listitems[which]);
+                        l=listitems[which];
                     } else {
                         mUseritems.remove(which);
                         selected.remove(which);
@@ -130,7 +163,8 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
                 if (isChecked) {
                     if (!cUseritems.contains(which)) {
                         cUseritems.add(which);
-                        choose.add(listitems[which]);
+                       // choose.add(listitems[which]);
+                        d=listitems[which];
                     } else {
                         cUseritems.remove(which);
                         choose.remove(which);
@@ -188,7 +222,8 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
                 if (isChecked) {
                     if (!tUseritems.contains(which)) {
                         tUseritems.add(which);
-                        sel.add(listitems[which]);
+                       // sel.add(listitems[which]);
+                        t=listitems[which];
                     } else {
                         tUseritems.remove(which);
                        sel.remove(which);
@@ -236,11 +271,62 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
 
     private void submit() {
 
-        qualification = qual.getSelectedItem().toString();
-        Find f = new Find(selected,choose,sel,qualification);
+        mJobs = new ArrayList<Job>();
+        Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
 
-        Snackbar s = Snackbar.make(fj,"Retrieving Jobs ...",Snackbar.LENGTH_SHORT);
-        s.show();
+        ElasticSearchAPI searchAPI = retrofit.create(ElasticSearchAPI.class);
+
+        HashMap<String,String> headerMap = new HashMap<String, String>();
+        headerMap.put("Authorization", Credentials.basic("user","ZGZWT9obsr1Y"));
+
+        String searchString = "*";
+        searchString = searchString + " qualification:" + "undegraduate";
+        searchString = searchString + " loc:" + "anupshahr";
+        searchString = searchString + " desg:" + "web";
+        searchString = searchString + " type:" + "internship";
+
+        Call<HitsObject> call = searchAPI.search(headerMap,"AND",searchString);
+
+        call.enqueue(new Callback<HitsObject>() {
+            @Override
+            public void onResponse(Call<HitsObject> call, Response<HitsObject> response) {
+
+                HitsList hitsList = new HitsList();
+                String jsonResponse = "";
+
+                try {
+                    Log.d("Response","Server Response: "+response.toString());
+                    if(response.isSuccessful()){
+                        hitsList = response.body().getHits();
+                    }else {
+                        jsonResponse = response.errorBody().string();
+                    }
+                    Log.d("Response","hits: "+hitsList);
+
+                    for (int i=0;i<hitsList.getJobIndex().size();i++){
+                        Log.d("Response","data: "+hitsList.getJobIndex().get(i).getJob().toString());
+                        mJobs.add(hitsList.getJobIndex().get(i).getJob());
+                    }
+                    Log.d("Response","Salary: "+mJobs.get(0).salary);
+
+                }catch (NullPointerException e){
+                    Log.e("Error","NullPointerException: "+e.getMessage());
+                }catch (IndexOutOfBoundsException e){
+                    Log.e("Error","IndexOutOfBoundsException: "+e.getMessage());
+                }catch (IOException e){
+                    Log.e("Error","IOException: "+e.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HitsObject> call, Throwable t) {
+                Log.e("Failure","message : "+t.getMessage());
+            }
+        });
+
 
     }
 
@@ -257,5 +343,7 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
         if(v==cdesignation)
             designation();
     }
+
+
 }
 
