@@ -2,6 +2,7 @@ package comorgsminorproj.httpsgithub.jobber;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
@@ -24,6 +25,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,7 +37,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Find_Jobs extends  AppCompatActivity implements View.OnClickListener{
+public class Find_Jobs extends  AppCompatActivity implements Serializable{
 
     public static final String URL = "http://35.200.252.187//elasticsearch/jobs/jobs/";
 
@@ -92,7 +94,16 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     ctype.setAdapter(adapter3);
 
-    search.setOnClickListener(this);
+    View.OnClickListener v = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(v == search)
+                submit();
+        }
+    };
+
+
+
 
 }
 
@@ -161,15 +172,13 @@ public class Find_Jobs extends  AppCompatActivity implements View.OnClickListene
                 Log.e("Failure","message : "+t.getMessage());
             }
         });
+        Intent i= new Intent(this,JobRetrieve.class);
+        i.putExtra("jobs",mJobs);
+        startActivity(i);
 
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if(v == search)
-            submit();
-    }
 
 
 }

@@ -43,9 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Rpage"
-            android:parentActivityName=".Login">
-
-        </activity>
+            android:parentActivityName=".Login"></activity>
         <activity
             android:name=".home_page"
             android:label="home"
@@ -53,8 +51,8 @@
         <activity
             android:name=".Find_Jobs"
             android:label="Find_Jobs"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".home_page">
+            android:parentActivityName=".home_page"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".home_page" />
@@ -80,6 +78,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".JobRetrieve"></activity>
     </application>
 
 </manifest>
