@@ -35,8 +35,8 @@ private ArrayList<String> mDataset;
         jobs = (ArrayList<Job>) intent.getSerializableExtra("jobs");
 
         mDataset=new ArrayList<>();
-        for(int i=0;i<20;i++){
-            mDataset.add("New Title #" + i);
+        for(int i=0;i<4;i++){
+            mDataset.add("Jobs #" + i);
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.list);
