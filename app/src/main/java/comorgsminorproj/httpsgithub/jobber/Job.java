@@ -8,12 +8,14 @@ import java.util.ArrayList;
 
 public class Job {
 
-    String jobID;
-    String desg;
-    String type;
-    String salary;
-    String qualification;
-    ArrayList<String> loc;
+     String jobID;
+     String desg;
+     String type;
+     String salary;
+     String qualification;
+     ArrayList<String> loc;
+
+    public  Job(){}
 
     public Job(String jobID, String desg, String type, String salary, String qualification, ArrayList<String> loc) {
         this.jobID = jobID;
@@ -46,5 +48,29 @@ public class Job {
 
     public String getQualification() {
         return qualification;
+    }
+
+    public void setJobID(String jobID) {
+        this.jobID = jobID;
+    }
+
+    public void setDesg(String desg) {
+        this.desg = desg;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public void setLoc(ArrayList<String> loc) {
+        this.loc = loc;
     }
 }

@@ -107,7 +107,7 @@ public class AddJobs extends AppCompatActivity implements View.OnClickListener{
                 mbuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String item = "";
+
                         for (int i = 0; i < mUseritems.size(); i++) {
                             selected.add(listitems[mUseritems.get(i)]);
 
