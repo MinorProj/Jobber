@@ -5,16 +5,17 @@ package comorgsminorproj.httpsgithub.jobber;
  */
 
 public class PdfUpload {
-    public String url;
+    private String url;
 
+    public PdfUpload(String url) {
+        this.url = url;
+    }
 
     public String getUrl() {
         return url;
     }
 
-
-    public PdfUpload(String name) {
-
+    public void setUrl(String url) {
         this.url = url;
     }
 }

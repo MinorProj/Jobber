@@ -50,7 +50,7 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.ViewHolder> {
         public TextView desg,salary,qual;
 
         public ViewHolder(View itemView) {
-
+            
             super(itemView);
             desg = (TextView) itemView.findViewById(R.id.desg);
             salary = (TextView) itemView.findViewById(R.id.salary);
