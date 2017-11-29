@@ -11,9 +11,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="135dp"
-        android:text="Software Developer
-                      location:Anupshahr
-                      salary:50000"/>
+        android:text=""/>
 
     <Button
         android:layout_width="wrap_content"
