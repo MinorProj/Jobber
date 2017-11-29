@@ -10,6 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="comorgsminorproj.httpsgithub.jobber.GovernmentJobs">
 
+
     <WebView
         android:id="@+id/web_id"
         android:layout_width="match_parent"
@@ -19,6 +20,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"></WebView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progress_id"
+        style="@style/Widget.AppCompat.ProgressBar" />
 
 
 </RelativeLayout>
