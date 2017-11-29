@@ -35,6 +35,7 @@ public class Login extends Fragment implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
 
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login,container,false);
 
