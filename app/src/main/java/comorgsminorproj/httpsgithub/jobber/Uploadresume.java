@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -23,11 +25,13 @@ import java.util.UUID;
 public class Uploadresume extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonChoose, buttonUpload;
+    public static final String FB_STORAGE_PATH="pdf/";
+    public static final String FB_DATABASE_PATH="pdf";
     private static final int PICK_PDF_CODE = 234;
     TextView textView;
-
     private Uri filePath;
     private StorageReference storageReference;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class Uploadresume extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         storageReference = FirebaseStorage.getInstance().getReference();
+        databaseReference= FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
 
         textView = (TextView) findViewById(R.id.textView);
         buttonChoose = (Button) findViewById(R.id.buttonChoose);
@@ -58,16 +63,20 @@ public class Uploadresume extends AppCompatActivity implements View.OnClickListe
             progressDialog.setTitle("Uploading");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
+            StorageReference ref = storageReference.child(FB_STORAGE_PATH + UUID.randomUUID().toString());
 
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @SuppressWarnings("VisibleForTests")
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+
+                            PdfUpload pdfUpload = new PdfUpload(taskSnapshot.getDownloadUrl().toString());
+                            String uploadId=databaseReference.push().getKey();
+                            databaseReference.child(uploadId).setValue(pdfUpload);
                         }
                     })
 
