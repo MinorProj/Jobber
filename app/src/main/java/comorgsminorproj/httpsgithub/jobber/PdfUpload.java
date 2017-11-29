@@ -8,7 +8,7 @@ public class PdfUpload {
     public String url;
 
 
-    public String getUrlrl() {
+    public String getUrl() {
         return url;
     }
 
