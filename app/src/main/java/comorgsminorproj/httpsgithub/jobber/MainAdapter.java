@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    private ArrayList<String> mDataset;
+    private ArrayList<Job> mDataset;
 
-    public MainAdapter(ArrayList<String> mDataset) {
+    public MainAdapter(ArrayList<Job> mDataset) {
         this.mDataset = mDataset;
     }
 
@@ -23,17 +23,20 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public MainAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row, parent, false);
+                .inflate(R.layout.row, null);
 
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
 
     }
 
     @Override
     public void onBindViewHolder(MainAdapter.ViewHolder holder, int position) {
 
-        holder.mtitle.setText(mDataset.get(position));
+        Job job = mDataset.get(position);
+
+        holder.desg.setText(job.getDesg());
+        holder.salary.setText(job.getSalary());
+        holder.qual.setText(job.getQualification());
 
     }
 
@@ -44,10 +47,14 @@ public class MainAdapter extends  RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView mtitle;
+        public TextView desg,salary,qual;
+
         public ViewHolder(View itemView) {
+
             super(itemView);
-            mtitle= (TextView) itemView.findViewById(R.id.title);
+            desg = (TextView) itemView.findViewById(R.id.desg);
+            salary = (TextView) itemView.findViewById(R.id.salary);
+            qual = (TextView) itemView.findViewById(R.id.qual);
         }
     }
 }
