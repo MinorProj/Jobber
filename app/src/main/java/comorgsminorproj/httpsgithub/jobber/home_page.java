@@ -1,19 +1,21 @@
 package comorgsminorproj.httpsgithub.jobber;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
-import java.net.URL;
-
 public class home_page extends AppCompatActivity implements View.OnClickListener{
 
+<<<<<<< HEAD
+public class home_page extends AppCompatActivity implements View.OnClickListener{
+
+=======
+>>>>>>> jobber2 updated
     Button mbutton;
     Button mgov;
 

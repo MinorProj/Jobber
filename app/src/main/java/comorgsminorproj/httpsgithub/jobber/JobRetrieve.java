@@ -1,5 +1,6 @@
 package comorgsminorproj.httpsgithub.jobber;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,16 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
+=======
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
+import java.io.IOException;
+import java.util.ArrayList;
+>>>>>>> jobber2 updated
 import java.util.HashMap;
 
 import okhttp3.Credentials;

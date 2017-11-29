@@ -18,5 +18,9 @@ public interface ElasticSearchAPI {
             @HeaderMap Map<String, String> headers,
             @Query("default_operator") String operator,
             @Query("q") String query
+<<<<<<< HEAD
             );
+=======
+    );
+>>>>>>> jobber2 updated
 }

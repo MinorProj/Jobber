@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+<<<<<<< HEAD
            <activity
+=======
+        <activity
+>>>>>>> jobber2 updated
             android:name=".MainActivity" />
 
         <activity
@@ -76,10 +80,17 @@
                 android:value=".home_page" />
         </activity>
         <activity android:name=".Uploadresume">
+<<<<<<< HEAD
             </activity>
 
 
       <activity android:name=".Splash">
+=======
+        </activity>
+
+
+        <activity android:name=".Front">
+>>>>>>> jobber2 updated
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

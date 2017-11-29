@@ -1,6 +1,7 @@
 package comorgsminorproj.httpsgithub.jobber;
 
 import android.graphics.Bitmap;
+<<<<<<< HEAD
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -8,6 +9,13 @@ import android.webkit.WebView;
 import android.view.View;
 import android.webkit.WebSettings;
 
+=======
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.WebView;
+>>>>>>> jobber2 updated
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
