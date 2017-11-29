@@ -29,7 +29,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.R.attr.delay;
 
 public class JobRetrieve extends AppCompatActivity implements View.OnClickListener {
 
